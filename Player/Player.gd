@@ -21,23 +21,25 @@ func _input(event):
 		
 
 func _physics_process(delta):
-	# We create a local variable to store the input direction.
-	velocity.x = 0
-	velocity.z = 0
+	var head_basis = $Head.get_global_transform().basis
+	
 	var direction = Vector2()
 
 	# We check for each move input and update the direction accordingly.
 	if Input.is_action_pressed("move_right"):
-		direction.x += 1
+		direction.x += speed/10
 	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
+		direction.x -= speed/10
 	if Input.is_action_pressed("move_backward"):
-		direction.y += 1
+		direction.y += speed/10
 	if Input.is_action_pressed("move_forward"):
-		direction.y -= 1
+		direction.y -= speed/10
 		
-	#f direction != Vector3.ZERO:
+	#if direction != Vector3.ZERO:
+	#direction.y -= fall_acceleration * delta
+	
 	direction = direction.normalized()
+	#move_and_slide(direction * speed)
 	#$Pivot.look_at(translation + direction, Vector3.UP)
 		
 	var forward = global_transform.basis.z
