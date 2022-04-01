@@ -27,5 +27,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858508, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
 
-[node name="FlashLight" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.404218, 0.36981, -0.568729 )
+[node name="FlashLight" parent="Head" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.404218, -0.488698, -0.568729 )
