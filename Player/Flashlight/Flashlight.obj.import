@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Flashlight.obj-b039c123ff01b35cc6a3438496be7a73.mesh"
+
+[deps]
+
+files=[ "res://.import/Flashlight.obj-b039c123ff01b35cc6a3438496be7a73.mesh" ]
+
+source_file="res://Player/Flashlight/Flashlight.obj"
+dest_files=[ "res://.import/Flashlight.obj-b039c123ff01b35cc6a3438496be7a73.mesh", "res://.import/Flashlight.obj-b039c123ff01b35cc6a3438496be7a73.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
