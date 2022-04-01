@@ -14,3 +14,4 @@ material/0 = null
 [node name="SpotLight" type="SpotLight" parent="FlashlightMesh"]
 transform = Transform( -10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -4.76837e-07, 0.0535603, 6.67464 )
 light_color = Color( 0.992157, 0, 1, 1 )
+light_energy = 8.046
