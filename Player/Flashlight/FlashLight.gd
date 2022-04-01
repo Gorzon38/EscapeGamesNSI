@@ -10,3 +10,4 @@ func _ready():
 
 func turn_on_off() -> void:
 	light.visible = !light.visible
+	visible = !visible
