@@ -8,24 +8,25 @@ var velocity: Vector3 = Vector3.ZERO
 
 var mouse_sensitivity: float = 1.5
 
+onready var flashlight = $FlashLight
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	# Look with the mouse
+	# Camera movement
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity / 18
 		$Head.rotation_degrees.x -= event.relative.y * mouse_sensitivity / 18
 		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 90)
-		
+	if event is InputEventKey:
+		if event.scancode == KEY_E and event.pressed:
+			flashlight.turn_on_off()
 
-func _physics_process(delta):
-	var head_basis = $Head.get_global_transform().basis
-	
+func _physics_process(delta):	
 	var direction = Vector2()
 
-	# We check for each move input and update the direction accordingly.
 	if Input.is_action_pressed("move_right"):
 		direction.x += speed/10
 	if Input.is_action_pressed("move_left"):
@@ -34,14 +35,9 @@ func _physics_process(delta):
 		direction.y += speed/10
 	if Input.is_action_pressed("move_forward"):
 		direction.y -= speed/10
-		
-	#if direction != Vector3.ZERO:
-	#direction.y -= fall_acceleration * delta
 	
 	direction = direction.normalized()
-	#move_and_slide(direction * speed)
-	#$Pivot.look_at(translation + direction, Vector3.UP)
-		
+	
 	var forward = global_transform.basis.z
 	var right = global_transform.basis.x
 	
