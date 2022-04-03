@@ -49,3 +49,6 @@ func _physics_process(delta):
 	velocity.z = relativeDir.z * speed
 	velocity.y -= fall_acceleration * delta
 	velocity = move_and_slide(velocity, Vector3.UP)
+	
+func add_object_to_inventory(_pickup_type):
+	inventory.append(_pickup_type)
