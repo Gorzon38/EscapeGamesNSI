@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Spatial",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://Interactables/Interactable.gd"
@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Interactable",
 "class": "PickupObject",
 "language": "GDScript",
-"path": "res://Interactables/PickupObject.gd"
+"path": "res://PickupObjects/PickupObject.gd"
 } ]
 _global_script_class_icons={
 "Interactable": "",
