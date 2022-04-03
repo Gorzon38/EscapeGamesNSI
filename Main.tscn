@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/LightButton.gd" type="Script" id=2]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
+[ext_resource path="res://PickupObjects/PickupObject.gd" type="Script" id=5]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -25,6 +26,13 @@ extents = Vector3( 5.08696, 1, 4.95114 )
 
 [sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SphereMesh" id=12]
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.780392, 1, 0, 1 )
+
+[sub_resource type="SphereShape" id=11]
 
 [node name="Main" type="Node"]
 
@@ -84,26 +92,42 @@ shadow_enabled = true
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="TestButton" type="StaticBody" parent="Interactables"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6492, 1.13821, 0.837813 )
-collision_layer = 2
+[node name="LightButton" type="StaticBody" parent="Interactables"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5426, 1.13821, -9.80594 )
+collision_layer = 3
 collision_mask = 2
 script = ExtResource( 2 )
 light = NodePath("../SpotLight")
 energy_when_on = 3
 
-[node name="CollisionShape" type="CollisionShape" parent="Interactables/TestButton"]
+[node name="CollisionShape" type="CollisionShape" parent="Interactables/LightButton"]
 shape = SubResource( 8 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Interactables/TestButton"]
+[node name="MeshInstance" type="MeshInstance" parent="Interactables/LightButton"]
 mesh = SubResource( 9 )
 material/0 = SubResource( 10 )
 
 [node name="SpotLight" type="SpotLight" parent="Interactables"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.4298, 3.13285, 0.837813 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.1447, 3.13285, -7.76004 )
 light_energy = 3.226
 light_specular = 0.917
 spot_range = 19.5248
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="TestPickup" type="StaticBody" parent="Pickups"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5804, 2.21742, 8.01112 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 5 )
+pickup_type = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="Pickups/TestPickup"]
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pickups/TestPickup"]
+shape = SubResource( 11 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.53977, 0 )
