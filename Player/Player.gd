@@ -1,18 +1,18 @@
 extends KinematicBody
 
 export var speed: float = 14
-
 export var fall_acceleration: float = 75
 
-var velocity: Vector3 = Vector3.ZERO
-
-var mouse_sensitivity: float = 1.5
-
 onready var flashlight = $Head/FlashLight
+
+var velocity: Vector3 = Vector3.ZERO
+var mouse_sensitivity: float = 1.5
+var inventory: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	flashlight.turn_on_off()
 
 func _input(event):
 	# Camera movement
@@ -23,8 +23,10 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_F and event.pressed:
 			flashlight.turn_on_off()
+		if event.scancode == KEY_F1 and event.pressed:
+			print(inventory)
 
-func _physics_process(delta):	
+func _physics_process(delta):
 	var direction = Vector2()
 
 	if Input.is_action_pressed("move_right"):

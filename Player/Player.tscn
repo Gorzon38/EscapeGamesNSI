@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Flashlight/FlashLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Interactions/InteractionRayCast.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape" id=3]
 height = 1.1247
 
 [sub_resource type="CapsuleMesh" id=4]
 
-[node name="KinematicBody" type="KinematicBody"]
+[node name="Player" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53977, 0 )
 script = ExtResource( 1 )
 
@@ -26,6 +27,12 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858508, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
+
+[node name="InteractionRayCast" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+collision_mask = 2
+script = ExtResource( 3 )
 
 [node name="FlashLight" parent="Head" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.404218, -0.488698, -0.568729 )
