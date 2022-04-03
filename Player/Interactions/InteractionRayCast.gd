@@ -13,7 +13,7 @@ func _process(delta):
 	if is_colliding() and collider is Interactable:
 		if current_collider != collider:
 			current_collider = collider
-	
+		
 		set_interaction_text(collider.get_interaction_text())
 		if Input.is_action_just_pressed("Interact"):
 			collider.interact()
@@ -26,7 +26,5 @@ func set_interaction_text(text: String) -> void:
 		interaction_label.set_text("")
 		interaction_label.set_visible(false)
 	else:
-		var interact_key = OS.get_scancode_string(InputMap.get_action_list("Interact")[0].scancode)
 		interaction_label.set_text("Press E to %s" %  text)
 		interaction_label.set_visible(true)
-
