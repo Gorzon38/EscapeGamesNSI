@@ -7,8 +7,10 @@
 [ext_resource path="res://PickupObjects/PickupObject.gd" type="Script" id=5]
 
 [sub_resource type="BoxShape" id=1]
+extents = Vector3( 30, 1, 30 )
 
 [sub_resource type="CubeMesh" id=2]
+size = Vector3( 60, 2, 60 )
 
 [sub_resource type="CubeMesh" id=5]
 
@@ -42,11 +44,9 @@ albedo_color = Color( 0.780392, 1, 0, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Decore/Ground"]
-transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Decore/Ground"]
-transform = Transform( 60, 0, 0, 0, 2, 0, 0, 0, 60, 0.765727, -0.156098, -0.169744 )
 mesh = SubResource( 2 )
 material/0 = null
 
