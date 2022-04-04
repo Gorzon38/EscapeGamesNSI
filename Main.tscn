@@ -5,6 +5,8 @@
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
 [ext_resource path="res://PickupObjects/PickupObject.gd" type="Script" id=5]
+[ext_resource path="res://AssetsFini/Ordi-Normal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://AssetsFini/Table.tscn" type="PackedScene" id=7]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 30, 1, 30 )
@@ -13,11 +15,6 @@ extents = Vector3( 30, 1, 30 )
 size = Vector3( 60, 2, 60 )
 
 [sub_resource type="CubeMesh" id=5]
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.898039, 0, 1, 1 )
-
-[sub_resource type="CylinderMesh" id=6]
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 5.08696, 1, 4.95114 )
@@ -40,6 +37,11 @@ albedo_color = Color( 0.780392, 1, 0, 1 )
 
 [node name="Decore" type="Node" parent="."]
 
+[node name="DirectionalLight" type="DirectionalLight" parent="Decore"]
+transform = Transform( -1, 8.74228e-08, 3.55272e-14, -1.82493e-08, -0.208748, 0.977969, 8.54968e-08, 0.977969, 0.208748, 0.00764465, 50.7253, 0.000448227 )
+visible = false
+shadow_enabled = true
+
 [node name="Ground" type="StaticBody" parent="Decore"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
 
@@ -50,45 +52,58 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="Decore"]
-transform = Transform( 1, 0, 0, 0, 0.546716, -0.837318, 0, 0.837318, 0.546716, -0.00538635, 5.98622, -11.0576 )
+[node name="Walls" type="Node" parent="Decore"]
 
-[node name="MeshInstance" type="MeshInstance" parent="Decore/StaticBody"]
+[node name="WestWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( -2.62268e-07, 1, -8.74228e-08, 0, -4.37114e-08, -2, -6, -4.37114e-08, 3.82137e-15, -29.1855, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/WestWall"]
 transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
 mesh = SubResource( 5 )
-material/0 = SubResource( 4 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="Decore/StaticBody"]
-transform = Transform( 5, 0, 0, 0, 0.818711, 0.574205, 0, -0.574205, 0.818711, 0, 1.37368, -3.33077 )
-mesh = SubResource( 6 )
-skeleton = NodePath("../MeshInstance")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Decore/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/WestWall"]
 shape = SubResource( 7 )
 
-[node name="StaticBody2" type="StaticBody" parent="Decore"]
-transform = Transform( 1, 0, 0, 0, -0.402203, -0.91555, 0, 0.91555, -0.402203, -0.0469093, 6.56956, -17.998 )
+[node name="NorthWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( 6.60414, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0469093, 4.00091, -29.389 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Decore/StaticBody2"]
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/NorthWall"]
 transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
 mesh = SubResource( 5 )
-skeleton = NodePath("../../StaticBody2")
-material/0 = SubResource( 4 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="Decore/StaticBody2"]
-transform = Transform( 5, 0, 0, 0, 0.818711, 0.574205, 0, -0.574205, 0.818711, 0, 1.37368, -3.33077 )
-mesh = SubResource( 6 )
-skeleton = NodePath("../MeshInstance")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Decore/StaticBody2"]
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/NorthWall"]
 shape = SubResource( 7 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="Decore"]
-transform = Transform( -1, 8.74228e-08, 3.55272e-14, -1.82493e-08, -0.208748, 0.977969, 8.54968e-08, 0.977969, 0.208748, 0.00764465, 50.7253, 0.000448227 )
-visible = false
-shadow_enabled = true
+[node name="SouthWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( 6.5, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.90407, 29.5039 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/SouthWall"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/SouthWall"]
+shape = SubResource( 7 )
+
+[node name="EstWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( -2.62268e-07, 1, -8.74228e-08, 0, -4.37114e-08, -2, -6, -4.37114e-08, 3.82137e-15, 28.6938, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/EstWall"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/EstWall"]
+shape = SubResource( 7 )
+
+[node name="Props" type="Node" parent="Decore"]
+
+[node name="Ordi-Normal" parent="Decore/Props" instance=ExtResource( 6 )]
+transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, -6.09322, 0, 0 )
+
+[node name="Table" parent="Decore/Props" instance=ExtResource( 7 )]
 
 [node name="Interactables" type="Node" parent="."]
 

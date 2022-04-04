@@ -12,6 +12,6 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 3 )
 
-[node name="SpotLight" type="SpotLight" parent="FlashlightMesh"]
+[node name="Light" type="SpotLight" parent="FlashlightMesh"]
 transform = Transform( -10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -4.76837e-07, 0.0535603, 6.67464 )
 light_energy = 8.046
