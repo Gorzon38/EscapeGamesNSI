@@ -54,15 +54,15 @@ material/0 = null
 
 [node name="Walls" type="Node" parent="Decore"]
 
-[node name="StaticBody" type="StaticBody" parent="Decore/Walls"]
-transform = Transform( 1, 0, 0, 0, 0.546716, -0.837318, 0, 0.837318, 0.546716, -0.00538635, 5.98622, -11.0576 )
+[node name="WestWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( -2.62268e-07, 1, -8.74228e-08, 0, -4.37114e-08, -2, -6, -4.37114e-08, 3.82137e-15, -29.1855, 0, 0 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/StaticBody"]
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/WestWall"]
 transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
 mesh = SubResource( 5 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/WestWall"]
 shape = SubResource( 7 )
 
 [node name="NorthWall" type="StaticBody" parent="Decore/Walls"]
@@ -87,10 +87,23 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/SouthWall"]
 shape = SubResource( 7 )
 
-[node name="Ordi-Normal" parent="Decore" instance=ExtResource( 6 )]
-transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, 4.14016, 0, -0.455431 )
+[node name="EstWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( -2.62268e-07, 1, -8.74228e-08, 0, -4.37114e-08, -2, -6, -4.37114e-08, 3.82137e-15, 28.6938, 0, 0 )
 
-[node name="Table" parent="." instance=ExtResource( 7 )]
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/EstWall"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/EstWall"]
+shape = SubResource( 7 )
+
+[node name="Props" type="Node" parent="Decore"]
+
+[node name="Ordi-Normal" parent="Decore/Props" instance=ExtResource( 6 )]
+transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, -6.09322, 0, 0 )
+
+[node name="Table" parent="Decore/Props" instance=ExtResource( 7 )]
 
 [node name="Interactables" type="Node" parent="."]
 
