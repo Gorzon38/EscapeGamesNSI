@@ -42,4 +42,5 @@ text = "retour au bureau"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_Option_pressed"]
+[connection signal="pressed" from="VBoxContainer/Crédit" to="." method="_on_Crdit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

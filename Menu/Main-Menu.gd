@@ -21,8 +21,13 @@ func _on_Play_pressed():
 
 
 func _on_Option_pressed():
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://Menu/Option_menu.tscn")
 
+func _on_Crdit_pressed():
+	get_tree().change_scene("res://Menu/Credit.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()
+
+
+
