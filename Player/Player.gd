@@ -60,3 +60,6 @@ func _physics_process(delta):
 	
 func add_object_to_inventory(_pickup_type):
 	inventory.append(_pickup_type)
+	
+func has_object_in_inventory(_object: String) -> bool:
+	return inventory.count(_object) > 0

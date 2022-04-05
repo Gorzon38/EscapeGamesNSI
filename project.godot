@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "PickupObject",
 "language": "GDScript",
 "path": "res://PickupObjects/PickupObject.gd"
+}, {
+"base": "Interactable",
+"class": "Projecteur",
+"language": "GDScript",
+"path": "res://Interactables/Projecteur.gd"
 } ]
 _global_script_class_icons={
 "Interactable": "",
-"PickupObject": ""
+"PickupObject": "",
+"Projecteur": ""
 }
 
 [application]

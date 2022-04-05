@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Interactables/Nodes/ProjecteurK7.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://default_env.tres" type="Environment" id=4]
+[ext_resource path="res://PickupObjects/PickupObject.gd" type="Script" id=5]
+[ext_resource path="res://AssetsFini/Ordi-Normal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://AssetsFini/Table.tscn" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 15, 1, 15 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 30, 2, 30 )
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 5.08696, 1, 4.95114 )
+
+[sub_resource type="SphereMesh" id=12]
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.780392, 1, 0, 1 )
+
+[sub_resource type="SphereShape" id=11]
+
+[node name="Main" type="Node"]
+
+[node name="Decore" type="Node" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Decore"]
+transform = Transform( -1, 8.74228e-08, 3.55272e-14, -1.82493e-08, -0.208748, 0.977969, 8.54968e-08, 0.977969, 0.208748, 0.00764465, 50.7253, 0.000448227 )
+visible = false
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody" parent="Decore"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0810318, 0.0912323, 0.140694 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Ground"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Walls" type="Node" parent="Decore"]
+
+[node name="WestWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( -1.31134e-07, 1, -4.37114e-08, 0, -4.37114e-08, -1, -3, -4.37114e-08, 1.91069e-15, -14.0728, 3.77302, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/WestWall"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/WestWall"]
+shape = SubResource( 7 )
+
+[node name="NorthWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( 3, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0469093, 4.00091, -14.6244 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/NorthWall"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/NorthWall"]
+shape = SubResource( 7 )
+
+[node name="SouthWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( 3, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.000873566, 3.53034, 15.7564 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/SouthWall"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/SouthWall"]
+shape = SubResource( 7 )
+
+[node name="EstWall" type="StaticBody" parent="Decore/Walls"]
+transform = Transform( -1.31134e-07, 1, -4.37114e-08, 0, -4.37114e-08, -1, -3, -4.37114e-08, 1.91069e-15, 15.5367, 3.49678, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Decore/Walls/EstWall"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Decore/Walls/EstWall"]
+shape = SubResource( 7 )
+
+[node name="Props" type="Node" parent="Decore"]
+
+[node name="Ordi-Normal" parent="Decore/Props" instance=ExtResource( 6 )]
+transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, -6.09322, 0, 0 )
+
+[node name="Table" parent="Decore/Props" instance=ExtResource( 7 )]
+
+[node name="Interactables" type="Node" parent="."]
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="TestPickup" type="StaticBody" parent="Pickups"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73705, 2.21742, 8.01112 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 5 )
+pickup_type = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="Pickups/TestPickup"]
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pickups/TestPickup"]
+shape = SubResource( 11 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.53977, 0 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 4 )
+
+[node name="ProjecteurK7" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93182, 0.465732, -3.62087 )
