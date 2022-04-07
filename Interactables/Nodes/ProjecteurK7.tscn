@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Interactables/Projecteur.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.87451, 0, 1, 1 )
+
+[node name="ProjecteurK7" type="Spatial"]
+
+[node name="Button" type="StaticBody" parent="."]
+collision_layer = 3
+collision_mask = 2
+script = ExtResource( 1 )
+object_to_insert = "Cassette"
+
+[node name="CollisionShape" type="CollisionShape" parent="Button"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Button"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Image" type="MeshInstance" parent="Button"]
+transform = Transform( -4.37114e-11, 0, 2.5, 0, 2.5, 0, -0.001, 0, -1.09278e-07, 0, 2, -10 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 5 )
+
+[node name="Light" type="SpotLight" parent="Button"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020256, 1.82435, -0.000752211 )
+spot_range = 9.79976
+spot_angle = 18.3782

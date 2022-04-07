@@ -8,6 +8,7 @@ onready var flashlight = $Head/FlashLight
 var velocity: Vector3 = Vector3.ZERO
 var mouse_sensitivity: float = 1.5
 var inventory: Array = []
+var mouse_visible = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +26,13 @@ func _input(event):
 			flashlight.turn_on_off()
 		if event.scancode == KEY_F1 and event.pressed:
 			print(inventory)
+		if event.scancode == KEY_F2 and event.pressed:
+			if not mouse_visible:
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				mouse_visible = true
+			else:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				mouse_visible = false
 
 func _physics_process(delta):
 	var direction = Vector2()
@@ -52,3 +60,6 @@ func _physics_process(delta):
 	
 func add_object_to_inventory(_pickup_type):
 	inventory.append(_pickup_type)
+	
+func has_object_in_inventory(_object: String) -> bool:
+	return inventory.count(_object) > 0

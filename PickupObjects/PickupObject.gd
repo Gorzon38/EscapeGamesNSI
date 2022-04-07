@@ -4,7 +4,6 @@ class_name PickupObject
 
 export var pickup_type: int = Pickup.NONE
 
-onready var player: KinematicBody = get_node("/root/Main/Player")
 
 const Pickup = {NONE = 0, TAPE = 1}
 
