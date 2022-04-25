@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Menu/Main-Menu.gd" type="Script" id=1]
+[ext_resource path="res://AssetsFini/cropped-most-popular-escape-room-games.png" type="Texture" id=2]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -12,14 +13,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -260.5
-margin_top = -227.0
-margin_right = 260.5
+margin_left = -247.0
+margin_top = -175.0
+margin_right = 274.0
+margin_bottom = 52.0
+
+[node name="Cropped-most-popular-escape-room-games" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 247, -125 )
+scale = Vector2( 1.19829, 1.70442 )
+texture = ExtResource( 2 )
+region_filter_clip = true
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 margin_right = 521.0
 margin_bottom = 20.0
 rect_pivot_offset = Vector2( -270, -12 )
+focus_neighbour_top = NodePath("../Quit")
 text = "Commencer une nouvelle partie"
 
 [node name="Option" type="Button" parent="VBoxContainer"]
@@ -38,6 +47,7 @@ text = "Crédit"
 margin_top = 72.0
 margin_right = 521.0
 margin_bottom = 92.0
+focus_neighbour_bottom = NodePath("../Play")
 text = "retour au bureau"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
