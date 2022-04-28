@@ -6,3 +6,4 @@
 background_mode = 2
 background_sky = SubResource( 1 )
 background_energy = 0.58
+ambient_light_energy = 0.3
