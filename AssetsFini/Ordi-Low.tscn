@@ -21,7 +21,6 @@ mesh = null
 
 [node name="Comp" parent="RootNode" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-cast_shadow = 0
 
 [node name="Table" parent="RootNode" index="4" instance=ExtResource( 2 )]
 transform = Transform( -1.85773e-07, 0, 4.25, 0, 4.25, 0, -4.25, 0, -1.85773e-07, 2.28765, -3.89484, 5.7203 )
@@ -31,3 +30,17 @@ transform = Transform( -1.85773e-07, 0, 4.25, 0, 4.25, 0, -4.25, 0, -1.85773e-07
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06876, 1.64262 )
 shape = SubResource( 5 )
+
+[node name="OmniLight" type="OmniLight" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426398, 1.69925, 2.28907 )
+light_color = Color( 0.00784314, 0, 1, 1 )
+light_energy = 9.436
+omni_range = 0.807696
+
+[node name="SpotLight" type="SpotLight" parent="." index="3"]
+transform = Transform( -0.051447, 0, 0.998676, 0, 1, 0, -0.998676, 0, -0.051447, 1.48925, 1.76228, 2.24026 )
+visible = false
+light_color = Color( 0, 0.529412, 1, 1 )
+light_energy = 11.541
+spot_range = 1.68515
+spot_angle = 27.4873

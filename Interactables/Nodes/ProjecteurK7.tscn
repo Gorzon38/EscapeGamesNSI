@@ -5,6 +5,7 @@
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
+size = Vector3( 1, 1, 1.5 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 1, 0, 0, 1 )
@@ -20,17 +21,17 @@ albedo_color = Color( 0.87451, 0, 1, 1 )
 collision_layer = 3
 collision_mask = 2
 script = ExtResource( 1 )
-object_to_insert = "Cassette"
+object_to_insert = "K7"
 
 [node name="CollisionShape" type="CollisionShape" parent="Button"]
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Button"]
+[node name="Projecteur" type="MeshInstance" parent="Button"]
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="Image" type="MeshInstance" parent="Button"]
-transform = Transform( -4.37114e-11, 0, 2.5, 0, 2.5, 0, -0.001, 0, -1.09278e-07, 0, 2, -10 )
+transform = Transform( -4.37114e-11, 0, 2.5, 0, 2.5, 0, -0.001, 0, -1.09278e-07, 0, 2, -4.6573 )
 mesh = SubResource( 4 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 5 )

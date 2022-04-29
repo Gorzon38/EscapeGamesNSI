@@ -2,21 +2,12 @@ extends Interactable
 
 class_name PickupObject
 
-export var pickup_type: int = Pickup.NONE
-
-
-const Pickup = {NONE = 0, TAPE = 1}
-
+export var pickup_name: String = "NONE"
 
 func get_interaction_text() -> String:
-	return "Pickup %s" % get_pickup_name()
+	return "Pickup %s" % pickup_name
 
 func interact() -> void:
-	print("Player took %s" % get_pickup_name())
-	player.add_object_to_inventory(get_pickup_name())
+	print("Player took %s" % pickup_name)
+	player.add_object_to_inventory(pickup_name)
 	queue_free()
-
-func get_pickup_name() -> String:
-	match pickup_type:
-		1: return "Cassette"
-	return "None"

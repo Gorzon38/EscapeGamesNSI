@@ -33,7 +33,6 @@ albedo_color = Color( 0.780392, 1, 0, 1 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Decore"]
 transform = Transform( -1, 8.74228e-08, 3.55272e-14, -1.82493e-08, -0.208748, 0.977969, 8.54968e-08, 0.977969, 0.208748, 0.00764465, 50.7253, 0.000448227 )
-visible = false
 shadow_enabled = true
 
 [node name="Ground" type="StaticBody" parent="Decore"]
@@ -109,7 +108,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73705, 2.21742, 8.01112 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 5 )
-pickup_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Pickups/TestPickup"]
 mesh = SubResource( 12 )

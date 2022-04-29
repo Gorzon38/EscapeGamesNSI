@@ -13,7 +13,6 @@ mesh = ExtResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="Light" type="SpotLight" parent="FlashlightMesh"]
-transform = Transform( -10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -4.76837e-07, 0.0535603, 6.67464 )
-light_specular = 0.2
-spot_range = 41.3316
-spot_angle = 15.0938
+transform = Transform( -10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0, 6.11667 )
+spot_range = 41.245
+spot_angle = 13.819

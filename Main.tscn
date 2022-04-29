@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://PickupObjects/K7.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
-[ext_resource path="res://PickupObjects/PickupObject.gd" type="Script" id=5]
+[ext_resource path="res://Interactables/Nodes/ProjecteurK7.tscn" type="PackedScene" id=5]
 [ext_resource path="res://AssetsFini/Ordi-Low.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AssetsFini/Table.tscn" type="PackedScene" id=7]
 
@@ -17,13 +18,6 @@ size = Vector3( 30, 2, 30 )
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 5.08696, 1, 4.95114 )
-
-[sub_resource type="SphereMesh" id=12]
-
-[sub_resource type="SpatialMaterial" id=13]
-albedo_color = Color( 0.780392, 1, 0, 1 )
-
-[sub_resource type="SphereShape" id=11]
 
 [node name="Main" type="Node"]
 
@@ -155,23 +149,25 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.1520
 [node name="Ordi-Low3" parent="Decore/Props" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.15201, -0.5, 2.06054 )
 
+[node name="OmniLight" type="OmniLight" parent="Decore"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.95493, -6.80428 )
+include_in_bound = false
+omni_range = 19.4456
+
+[node name="OmniLight2" type="OmniLight" parent="Decore"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0197005, 8.03616, 3.90426 )
+include_in_bound = false
+omni_range = 19.4456
+
 [node name="Interactables" type="Node" parent="."]
+
+[node name="ProjecteurK7" parent="Interactables" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6568, 1.05982, -9.20934 )
 
 [node name="Pickups" type="Node" parent="."]
 
-[node name="TestPickup" type="StaticBody" parent="Pickups"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5804, 2.21742, 8.01112 )
-collision_layer = 2
-collision_mask = 2
-script = ExtResource( 5 )
-pickup_type = 1
-
-[node name="MeshInstance" type="MeshInstance" parent="Pickups/TestPickup"]
-mesh = SubResource( 12 )
-material/0 = SubResource( 13 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Pickups/TestPickup"]
-shape = SubResource( 11 )
+[node name="K7" parent="Pickups" instance=ExtResource( 2 )]
+transform = Transform( 0.69575, 0, 0.718284, 0, 1, 0, -0.718284, 0, 0.69575, 10.2094, 0.656242, -0.856183 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0367184, 1.71045, -0.17753 )
