@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Interactables/Projecteur.gd" type="Script" id=1]
-[ext_resource path="res://AssetsFini/MAT_K7Proj.tres" type="Material" id=2]
-[ext_resource path="res://Interactables/ViewportProjecteur.gd" type="Script" id=3]
+[ext_resource path="res://AssetsFini/CodeSprite3D.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Viewport")
 
 [sub_resource type="BoxShape" id=1]
 
@@ -12,12 +14,11 @@ size = Vector3( 1, 1, 1.5 )
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="CubeMesh" id=4]
-
-[sub_resource type="ViewportTexture" id=5]
-viewport_path = NodePath("Image2/Sprite3D/Viewport")
-
 [node name="ProjecteurK7" type="Spatial"]
+
+[node name="Image" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.456564, 1.37467, -2.41558 )
+texture = SubResource( 4 )
 
 [node name="Button" type="StaticBody" parent="."]
 collision_layer = 3
@@ -32,32 +33,7 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="Image" type="MeshInstance" parent="Button"]
-transform = Transform( -4.37114e-11, 0, 2.5, 0, 2.5, 0, -0.001, 0, -1.09278e-07, 0, 2, -4.6573 )
-visible = false
-mesh = SubResource( 4 )
-skeleton = NodePath("../..")
-material/0 = ExtResource( 2 )
-
 [node name="Light" type="SpotLight" parent="Button"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020256, 1.82435, -0.000752211 )
 spot_range = 9.79976
 spot_angle = 18.3782
-
-[node name="Image2" type="Node" parent="."]
-
-[node name="Sprite3D" type="Sprite3D" parent="Image2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.77554 )
-texture = SubResource( 5 )
-
-[node name="Viewport" type="Viewport" parent="Image2/Sprite3D"]
-transparent_bg = true
-render_target_v_flip = true
-script = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="Image2/Sprite3D/Viewport"]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "10 / 11 / 16 /  / 16 / 4 / 23 / 16
-"
-percent_visible = -0.047619
