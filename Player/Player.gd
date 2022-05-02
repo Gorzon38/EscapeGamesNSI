@@ -9,6 +9,7 @@ var velocity: Vector3 = Vector3.ZERO
 var mouse_sensitivity: float = 1.5
 var inventory: Array = []
 var mouse_visible = false
+var can_move: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +18,7 @@ func _ready():
 
 func _input(event):
 	# Camera movement
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and can_move:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity / 18
 		$Head.rotation_degrees.x -= event.relative.y * mouse_sensitivity / 18
 		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 90)
@@ -27,25 +28,24 @@ func _input(event):
 		if event.scancode == KEY_F1 and event.pressed:
 			print(inventory)
 		if event.scancode == KEY_F2 and event.pressed:
+			mouse_visible = !mouse_visible
 			if not mouse_visible:
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				mouse_visible = true
 			else:
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-				mouse_visible = false
 
 func _physics_process(delta):
 	var direction = Vector2()
-
-	if Input.is_action_pressed("move_right"):
-		direction.x += speed/10
-	if Input.is_action_pressed("move_left"):
-		direction.x -= speed/10
-	if Input.is_action_pressed("move_backward"):
-		direction.y += speed/10
-	if Input.is_action_pressed("move_forward"):
-		direction.y -= speed/10
-	
+	if can_move:
+		if Input.is_action_pressed("move_right"):
+			direction.x += speed/10
+		if Input.is_action_pressed("move_left"):
+			direction.x -= speed/10
+		if Input.is_action_pressed("move_backward"):
+			direction.y += speed/10
+		if Input.is_action_pressed("move_forward"):
+			direction.y -= speed/10
+		
 	direction = direction.normalized()
 	
 	var forward = global_transform.basis.z

@@ -14,11 +14,11 @@ func _ready():
 	light_node.set_param(Light.PARAM_ENERGY, 0)
 
 func get_interaction_text() -> String:
-	return "" if has_interact else "Insert %s" % object_to_insert
+	return "" if has_interact else "Insérer : %s" % object_to_insert.to_upper()
 
 func interact() -> void:
 	if player.has_object_in_inventory(object_to_insert):
-		print("Interacted with %s" % name)
+		print("Intéragir avec %s" % name.to_upper())
 		image_node.visible = true
 		light_node.set_param(Light.PARAM_ENERGY, 2)
 		has_interact = true

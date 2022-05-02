@@ -8,4 +8,4 @@ func get_interaction_text() -> String:
 	return "Interactable"
 
 func interact() -> void:
-	print("Interacted with %s" % name)
+	print("Intéragie avec %s" % name)
