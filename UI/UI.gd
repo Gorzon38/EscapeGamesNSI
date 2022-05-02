@@ -10,20 +10,27 @@ onready var MainNode: Node = get_node("/root/Main")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	EnterCodeBox.get_node("LineEdit").text = ""
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _input(event):
+	if visible and event is InputEventKey and event.scancode == KEY_ESCAPE:
+		_on_ButtonClose_pressed()
 
 
 func _on_ButtonSend_pressed():
-	if EnterCodeBox.get_node("LineEdit").text == "not that":
+	if EnterCodeBox.get_node("LineEdit").text.to_lower() == "not that":
 		MainNode.levelComplete = true
+	else:
+		EnterCodeBox.get_node("LineEdit").text = ""
 
 
 func _on_ButtonClose_pressed():
 	EnterCodeBox.visible = false
 	EnterCodeBox.get_node("LineEdit").text = ""
-	pass # Replace with function body.
+	MainNode.get_node("Player").mouse_visible = true
+	MainNode.get_node("Player").can_move = true
+
+
+func _on_LineEdit_text_entered(new_text):
+	_on_ButtonSend_pressed()

@@ -23,16 +23,12 @@ func _input(event):
 		$Head.rotation_degrees.x -= event.relative.y * mouse_sensitivity / 18
 		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 90)
 	if event is InputEventKey:
-		if event.scancode == KEY_F and event.pressed:
+		if can_move and event.scancode == KEY_F and event.pressed:
 			flashlight.turn_on_off()
 		if event.scancode == KEY_F1 and event.pressed:
 			print(inventory)
 		if event.scancode == KEY_F2 and event.pressed:
 			mouse_visible = !mouse_visible
-			if not mouse_visible:
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			else:
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
 	var direction = Vector2()
@@ -57,6 +53,11 @@ func _physics_process(delta):
 	velocity.z = relativeDir.z * speed
 	velocity.y -= fall_acceleration * delta
 	velocity = move_and_slide(velocity, Vector3.UP)
+	
+	if not mouse_visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func add_object_to_inventory(_pickup_type):
 	inventory.append(_pickup_type)
