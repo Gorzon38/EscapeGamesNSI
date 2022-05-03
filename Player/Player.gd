@@ -1,9 +1,12 @@
 extends KinematicBody
 
+## Vitesse
 export var speed: float = 14
+## Pour toucher en permanence le sol
 export var fall_acceleration: float = 75
 
-onready var flashlight = $Head/FlashLight
+## Noeud de la lampe torche
+onready var flashlight = $Head/FlashLight # Noeud de la lampe torche
 
 var velocity: Vector3 = Vector3.ZERO
 var mouse_sensitivity: float = 1.5

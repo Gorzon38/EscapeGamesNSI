@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Interactables/Projecteur.gd" type="Script" id=1]
 [ext_resource path="res://Interactables/ViewportProjecteur.gd" type="Script" id=2]
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("ProjecteurBody/Image/Viewport")
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.49798, 0.50756, 0.731937 )
@@ -12,41 +15,29 @@ size = Vector3( 1, 1, 1.5 )
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="ViewportTexture" id=4]
-viewport_path = NodePath("Button/Image/Viewport")
+[sub_resource type="CylinderMesh" id=5]
+top_radius = 0.2
+bottom_radius = 0.1
+height = 0.3
 
 [node name="ProjecteurK7" type="Spatial"]
 
-[node name="Button" type="StaticBody" parent="."]
+[node name="ProjecteurBody" type="StaticBody" parent="."]
 collision_layer = 3
-collision_mask = 2
 script = ExtResource( 1 )
 object_to_insert = "Cassette"
 
-[node name="CollisionShape" type="CollisionShape" parent="Button"]
-shape = SubResource( 1 )
-
-[node name="Projecteur" type="MeshInstance" parent="Button"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="Light" type="SpotLight" parent="Button"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020256, 0.561445, -0.661357 )
-light_energy = 0.56
-spot_range = 7.092
-spot_angle = 14.2074
-
-[node name="Image" type="Sprite3D" parent="Button"]
+[node name="Image" type="Sprite3D" parent="ProjecteurBody"]
 transform = Transform( 1, 0, 0, 0, 2.22754, 0, 0, 0, 1, -0.0747277, 0.54135, -5.20918 )
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 
-[node name="Viewport" type="Viewport" parent="Button/Image"]
+[node name="Viewport" type="Viewport" parent="ProjecteurBody/Image"]
 size = Vector2( 95, 48 )
 transparent_bg = true
 render_target_v_flip = true
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="Button/Image/Viewport"]
+[node name="Label" type="Label" parent="ProjecteurBody/Image/Viewport"]
 margin_right = 40.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -54,3 +45,22 @@ text = "10 / 11 / 16
 16 / 4 / 23 / 16
 "
 align = 1
+
+[node name="Light" type="SpotLight" parent="ProjecteurBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020256, 0.561445, -0.661357 )
+light_energy = 0.56
+spot_range = 7.092
+spot_angle = 14.2074
+
+[node name="CollisionShape" type="CollisionShape" parent="ProjecteurBody"]
+shape = SubResource( 1 )
+
+[node name="Projecteur" type="MeshInstance" parent="ProjecteurBody"]
+mesh = SubResource( 2 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ProjecteurBody"]
+transform = Transform( 1, 0, 0, 0, -0.0202968, 0.999794, 0, -0.999794, -0.0202968, 0, 0.514669, -0.74047 )
+mesh = SubResource( 5 )
+material/0 = null

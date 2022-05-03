@@ -1,21 +1,17 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
+## Level completer
 var levelComplete = false
-var has_inform_end = false
+## La fin du iveau a été informer au joueur
+var has_told_end = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("UI/EnterCode").visible = false
+	get_node("UI/EnterCode").visible = false #Cache l'Interface de l'ordinateur
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if levelComplete and !has_inform_end:
-		has_inform_end = true
+	if levelComplete and !has_told_end: # Montre le msg de fin
+		has_told_end = true
 		print("END")
