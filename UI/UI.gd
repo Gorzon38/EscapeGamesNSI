@@ -21,6 +21,7 @@ func _input(event):
 func _on_ButtonSend_pressed():
 	if EnterCodeBox.get_node("LineEdit").text.to_lower() == "not that":
 		MainNode.levelComplete = true
+		MainNode.get_node("Player").mouse_visible = false
 	else:
 		EnterCodeBox.get_node("LineEdit").text = ""
 

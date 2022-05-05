@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ContainerColor.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Container" type="Container" parent="."]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 140.0
+margin_bottom = 140.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Container"]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Button" type="Button" parent="Container"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 165.0
+margin_bottom = 30.0
+text = "CHANGE COLOR"
+
+[node name="Container2" type="Container" parent="."]
+margin_left = 100.0
+margin_top = 200.0
+margin_right = 140.0
+margin_bottom = 240.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Container2"]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Button" type="Button" parent="Container2"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 165.0
+margin_bottom = 30.0
+text = "CHANGE COLOR"
+
+[node name="Container3" type="Container" parent="."]
+margin_left = 100.0
+margin_top = 300.0
+margin_right = 140.0
+margin_bottom = 340.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Container3"]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Button" type="Button" parent="Container3"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 165.0
+margin_bottom = 30.0
+text = "CHANGE COLOR"
+
+[node name="Container4" type="Container" parent="."]
+margin_left = 100.0
+margin_top = 400.0
+margin_right = 140.0
+margin_bottom = 440.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Container4"]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Button" type="Button" parent="Container4"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 165.0
+margin_bottom = 30.0
+text = "CHANGE COLOR"
+
+[connection signal="pressed" from="Container/Button" to="Container" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container2/Button" to="Container2" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container3/Button" to="Container3" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container4/Button" to="Container4" method="_on_Button_pressed"]
