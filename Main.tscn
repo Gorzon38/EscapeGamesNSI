@@ -175,7 +175,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.1, -
 transform = Transform( 0.69575, 0, 0.718284, 0, 1, 0, -0.718284, 0, 0.69575, 10.2094, 0.656242, -0.856183 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0367184, 1.71045, -0.17753 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0367184, 1.71045, -0.17753 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
 

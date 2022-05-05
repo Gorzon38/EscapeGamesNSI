@@ -18,31 +18,39 @@ valign = 1
 uppercase = true
 
 [node name="EnterCode" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
 
 [node name="ButtonSend" type="Button" parent="EnterCode"]
-margin_left = 472.0
-margin_top = 343.0
-margin_right = 518.0
-margin_bottom = 363.0
-rect_scale = Vector2( 1.98407, 1.59149 )
+margin_left = 33.0
+margin_top = 44.0
+margin_right = 93.0
+margin_bottom = 74.0
 text = "SEND"
 
 [node name="ButtonClose" type="Button" parent="EnterCode"]
-margin_left = 359.0
-margin_top = 347.0
-margin_right = 411.0
-margin_bottom = 367.0
-rect_scale = Vector2( 1.4911, 1.23332 )
+margin_left = -76.0
+margin_top = 47.0
+margin_right = -24.0
+margin_bottom = 67.0
 text = "CLOSE"
 
 [node name="LineEdit" type="LineEdit" parent="EnterCode"]
-margin_left = 221.0
-margin_top = 268.0
-margin_right = 279.0
-margin_bottom = 292.0
-rect_scale = Vector2( 10.5922, 1.68823 )
+anchor_right = 0.349
+margin_left = -243.0
+margin_top = -9.0
+margin_right = 243.04
+margin_bottom = 15.0
+align = 1
+placeholder_text = "TEXT"
+caret_blink = true
 
 [connection signal="pressed" from="EnterCode/ButtonSend" to="." method="_on_ButtonSend_pressed"]
 [connection signal="pressed" from="EnterCode/ButtonClose" to="." method="_on_ButtonClose_pressed"]
+[connection signal="text_entered" from="EnterCode/LineEdit" to="." method="_on_LineEdit_text_entered"]
