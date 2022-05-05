@@ -29,7 +29,7 @@ func _on_ButtonSend_pressed():
 func _on_ButtonClose_pressed():
 	EnterCodeBox.visible = false
 	EnterCodeBox.get_node("LineEdit").text = ""
-	MainNode.get_node("Player").mouse_visible = true
+	MainNode.get_node("Player").mouse_visible = false
 	MainNode.get_node("Player").can_move = true
 
 
