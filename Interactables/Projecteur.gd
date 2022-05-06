@@ -4,6 +4,7 @@ class_name Projecteur
 
 export var object_to_insert: String = ""
 
+onready var Cassette: Sprite = get_node("/root/Main/UI/Cassette") # Recupère le noeud du niveau
 onready var image_node = get_node("Image")
 onready var light_node = get_node("Light")
 
@@ -25,3 +26,4 @@ func interact() -> void:
 		$VideoLight.visible = true
 		light_node.set_param(Light.PARAM_ENERGY, 2)
 		has_interact = true
+		Cassette.visible = false

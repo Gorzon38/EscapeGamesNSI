@@ -11,6 +11,7 @@ onready var MainNode: Node = get_node("/root/Main")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	EnterCodeBox.get_node("LineEdit").text = ""
+	$Cassette.visible = false
 
 func _input(event):
 	if visible and event is InputEventKey and event.scancode == KEY_ESCAPE:
