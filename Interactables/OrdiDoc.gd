@@ -19,4 +19,5 @@ func interact() -> void:
 	EnterCodeBox.visible = true
 	MainNode.get_node("Player").mouse_visible = true
 	MainNode.get_node("Player").can_move = false
+	EnterCodeBox.get_node("LineEdit").grab_focus()
 	

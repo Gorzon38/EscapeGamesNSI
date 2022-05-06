@@ -12,10 +12,10 @@ onready var MainNode: Node = get_node("/root/Main")
 func _ready():
 	EnterCodeBox.get_node("LineEdit").text = ""
 
-
 func _input(event):
 	if visible and event is InputEventKey and event.scancode == KEY_ESCAPE:
 		_on_ButtonClose_pressed()
+
 
 
 func _on_ButtonSend_pressed():
