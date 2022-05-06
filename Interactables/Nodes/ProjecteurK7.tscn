@@ -64,3 +64,7 @@ material/0 = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, -0.0202968, 0.999794, 0, -0.999794, -0.0202968, 0, 0.514669, -0.74047 )
 mesh = SubResource( 5 )
 material/0 = null
+
+[node name="VideoLight" type="OmniLight" parent="ProjecteurBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528873, -0.962096 )
+omni_range = 0.333039

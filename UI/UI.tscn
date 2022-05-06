@@ -58,7 +58,7 @@ margin_top = -9.0
 margin_right = 243.04
 margin_bottom = 15.0
 align = 1
-placeholder_text = "TEXT"
+placeholder_text = "K - Sept"
 caret_blink = true
 
 [connection signal="pressed" from="EnterCode/ButtonSend" to="." method="_on_ButtonSend_pressed"]
