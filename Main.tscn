@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PickupObjects/K7.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://MainScript.gd" type="Script" id=9]
 [ext_resource path="res://AssetsFini/texture/vhhleat_2K_Albedo.jpg" type="Texture" id=10]
 [ext_resource path="res://AssetsFini/texture/uihnfi1v_2K_Albedo.jpg" type="Texture" id=11]
+[ext_resource path="res://Interactables/Nodes/Cache.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/EnigmeDeCouleur/ContainerColor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Interactables/Nodes/PanneauControl.tscn" type="PackedScene" id=14]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 15, 1, 15 )
@@ -183,18 +186,26 @@ omni_range = 19.4456
 [node name="ProjecteurK7" parent="Interactables" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6568, 1.05982, -8.90071 )
 
-[node name="Spatial" parent="Interactables" instance=ExtResource( 8 )]
+[node name="OrdiDoc" parent="Interactables" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.1, -0.5, -4.5587 )
+
+[node name="Cache" parent="Interactables" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3035, 0.971545, -1.43221 )
+
+[node name="ControlPannel" parent="Interactables" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.7516, -0.106301, -0.00278905 )
 
 [node name="Pickups" type="Node" parent="."]
 
 [node name="K7" parent="Pickups" instance=ExtResource( 2 )]
-transform = Transform( 0.69575, 0, 0.718284, 0, 1, 0, -0.718284, 0, 0.69575, 10.2094, 0.656242, -0.856183 )
+transform = Transform( 0.69575, 0, 0.718284, 0, 1, 0, -0.718284, 0, 0.69575, 10.687, 0.656242, -1.36764 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0367184, 1.71045, -0.17753 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="ContainerColor" parent="." instance=ExtResource( 13 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )

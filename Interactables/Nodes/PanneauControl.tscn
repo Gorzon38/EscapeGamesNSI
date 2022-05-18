@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Interactables/PannelControl/PannelLight.gd" type="Script" id=1]
+[ext_resource path="res://Interactables/PannelControl/PannelControl.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+emission_enabled = true
+emission = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CylinderMesh" id=2]
+material = SubResource( 1 )
+top_radius = 0.25
+bottom_radius = 0.25
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 0.75, 1, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=5]
+emission_enabled = true
+emission = Color( 0.223529, 0.223529, 0.223529, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 5 )
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.432707, 0.649023, 0.407877 )
+
+[node name="ControlPannel" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 3
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Pannel" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35277, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+script = ExtResource( 1 )
+
+[node name="1" type="MeshInstance" parent="StaticBody/Pannel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171588, 0.34812, 0.238344 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="2" type="MeshInstance" parent="StaticBody/Pannel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171588, 0.174693, 0.238344 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="3" type="MeshInstance" parent="StaticBody/Pannel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171588, 0, 0.238344 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="4" type="MeshInstance" parent="StaticBody/Pannel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171588, -0.196366, 0.238344 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41032, 0 )
+shape = SubResource( 6 )

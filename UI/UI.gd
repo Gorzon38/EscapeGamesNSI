@@ -12,6 +12,7 @@ onready var MainNode: Node = get_node("/root/Main")
 func _ready():
 	EnterCodeBox.get_node("LineEdit").text = ""
 	$Cassette.visible = false
+	$TextureButton.visible = false
 
 func _input(event):
 	if visible and event is InputEventKey and event.scancode == KEY_ESCAPE:
@@ -21,8 +22,7 @@ func _input(event):
 
 func _on_ButtonSend_pressed():
 	if EnterCodeBox.get_node("LineEdit").text.to_lower() == "not that":
-		MainNode.levelComplete = true
-		MainNode.get_node("Player").mouse_visible = false
+		$TextureButton.visible = true
 	else:
 		EnterCodeBox.get_node("LineEdit").text = ""
 
@@ -36,3 +36,7 @@ func _on_ButtonClose_pressed():
 
 func _on_LineEdit_text_entered(new_text):
 	_on_ButtonSend_pressed()
+
+
+func _on_TextureButton_pressed():
+	get_tree().change_scene("res://Menu/Menu.tscn")

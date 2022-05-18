@@ -24,7 +24,7 @@ emission_on_uv2 = false
 material = SubResource( 4 )
 size = Vector3( 0.01, 0.01, 0.1 )
 
-[node name="Spatial" type="Spatial"]
+[node name="OrdiDoc" type="Spatial"]
 
 [node name="OrdiCode" type="StaticBody" parent="."]
 transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0.461933, 1.59489, 2.31768 )
