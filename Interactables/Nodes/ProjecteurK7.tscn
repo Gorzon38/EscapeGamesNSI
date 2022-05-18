@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Interactables/Projecteur.gd" type="Script" id=1]
 [ext_resource path="res://Interactables/ViewportProjecteur.gd" type="Script" id=2]
@@ -20,12 +20,15 @@ top_radius = 0.2
 bottom_radius = 0.1
 height = 0.3
 
+[sub_resource type="ViewportTexture" id=7]
+viewport_path = NodePath("Sprite3D/Viewport")
+
 [node name="ProjecteurK7" type="Spatial"]
 
 [node name="ProjecteurBody" type="StaticBody" parent="."]
 collision_layer = 3
 script = ExtResource( 1 )
-object_to_insert = "Cassette"
+object_to_insert = "K7"
 
 [node name="Image" type="Sprite3D" parent="ProjecteurBody"]
 transform = Transform( 1, 0, 0, 0, 2.22754, 0, 0, 0, 1, -0.0747277, 0.54135, -5.20918 )
@@ -67,3 +70,19 @@ material/0 = null
 [node name="VideoLight" type="OmniLight" parent="ProjecteurBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528873, -0.962096 )
 omni_range = 0.333039
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -0.544515, 0.105406, -0.0253744 )
+texture = SubResource( 7 )
+
+[node name="Viewport" type="Viewport" parent="Sprite3D"]
+size = Vector2( 16, 14 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Sprite3D/Viewport"]
+margin_right = 16.0
+margin_bottom = 14.0
+text = "K7"
+uppercase = true

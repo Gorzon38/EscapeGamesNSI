@@ -12,8 +12,8 @@ func get_interaction_text() -> String:
 
 func interact() -> void:
 	"""Intéraction avec l'objet"""
-	print("Player took %s" % pickup_name)
-	player.add_object_to_inventory(pickup_name)
+	print("Player took %s" % pickup_name_ui)
+	player.add_object_to_inventory(pickup_name_ui)
 	Cassette.visible = true
 	queue_free()
 	

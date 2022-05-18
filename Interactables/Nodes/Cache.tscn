@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_albedo_tex_force_srgb = true
 emission_enabled = true
 emission = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
-emission_energy = 1.0
+emission_energy = 0.22
 emission_operator = 0
 emission_on_uv2 = false
 
@@ -14,6 +14,13 @@ size = Vector3( 0.25, 1, 1 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.558036, 0.719519, 0.590262 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.917647, 0.0156863, 0.0156863, 1 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 4 )
+size = Vector3( 0.05, 0.05, 1 )
 
 [node name="Cache" type="Spatial"]
 
@@ -46,3 +53,8 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.520404, 0, 0 )
 shape = SubResource( 3 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.247524, 0.648776, 0.812011 )
+mesh = SubResource( 5 )
+material/0 = null
