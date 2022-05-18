@@ -55,6 +55,8 @@ func _physics_process(delta):
 	velocity.x = relativeDir.x * speed
 	velocity.z = relativeDir.z * speed
 	velocity.y -= fall_acceleration * delta
+	if is_on_floor() and can_move and Input.is_action_pressed("jump"):
+		velocity.y += speed
 	velocity = move_and_slide(velocity, Vector3.UP)
 	
 	if mouse_visible:
