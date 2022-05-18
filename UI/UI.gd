@@ -21,7 +21,7 @@ func _input(event):
 
 
 func _on_ButtonSend_pressed():
-	if EnterCodeBox.get_node("LineEdit").text.to_lower() == "not that":
+	if EnterCodeBox.get_node("LineEdit").text.to_lower() == "echappe":
 		$TextureButton.visible = true
 	else:
 		EnterCodeBox.get_node("LineEdit").text = ""

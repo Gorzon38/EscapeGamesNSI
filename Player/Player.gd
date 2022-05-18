@@ -1,5 +1,7 @@
 extends KinematicBody
 
+class_name Player
+
 ## Vitesse
 export var speed: float = 14
 ## Pour toucher en permanence le sol

@@ -20,3 +20,8 @@ func _on_Button_pressed():
 		MainNode.get_node("Player").mouse_visible = false
 		MainNode.get_node("Player").can_move = true
 		visible = false
+	else:
+		$Container/ColorRect.color = Color(1,0,0,1)
+		$Container2/ColorRect.color = Color(1,0,0,1)
+		$Container3/ColorRect.color = Color(1,0,0,1)
+		$Container4/ColorRect.color = Color(1,0,0,1)

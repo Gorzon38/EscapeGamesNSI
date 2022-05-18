@@ -32,7 +32,7 @@ transform = Transform( 1, 0, 0, 0, 2.22754, 0, 0, 0, 1, -0.0747277, 0.54135, -5.
 texture = SubResource( 6 )
 
 [node name="Viewport" type="Viewport" parent="ProjecteurBody/Image"]
-size = Vector2( 95, 48 )
+size = Vector2( 166, 31 )
 transparent_bg = true
 render_target_v_flip = true
 script = ExtResource( 2 )
@@ -41,8 +41,7 @@ script = ExtResource( 2 )
 margin_right = 40.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "10 / 11 / 16 
-16 / 4 / 23 / 16
+text = "1 / 25 / 4 / 23 / 12 / 12 / 1
 "
 align = 1
 
@@ -50,7 +49,7 @@ align = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020256, 0.561445, -0.661357 )
 light_energy = 0.56
 spot_range = 7.092
-spot_angle = 14.2074
+spot_angle = 17.9251
 
 [node name="CollisionShape" type="CollisionShape" parent="ProjecteurBody"]
 shape = SubResource( 1 )

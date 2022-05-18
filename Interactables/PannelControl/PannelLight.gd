@@ -16,5 +16,8 @@ func _process(_delta):
 		wait -= 0.1
 	else:
 		$"1".get_active_material(0).emission = color[x % color.size()]
+		$"2".get_active_material(0).emission = color[(x+1) % color.size()]
+		$"3".get_active_material(0).emission = color[(x+2) % color.size()]
+		$"4".get_active_material(0).emission = color[(x+3) % color.size()]
 		x = (x+1) % color.size()
 		wait = 2
