@@ -12,7 +12,7 @@ onready var MainNode: Node = get_node("/root/Main")
 func _ready():
 	EnterCodeBox.get_node("LineEdit").text = ""
 	$Cassette.visible = false
-	$TextureButton.visible = false
+	$EndScreen.visible = false
 
 func _input(event):
 	if visible and event is InputEventKey and event.scancode == KEY_ESCAPE:
@@ -22,7 +22,8 @@ func _input(event):
 
 func _on_ButtonSend_pressed():
 	if EnterCodeBox.get_node("LineEdit").text.to_lower() == "echappe":
-		$TextureButton.visible = true
+		$EndScreen.visible = true
+		$EndScreen/Label.text = "IN "+ $StopWatch.text
 	else:
 		EnterCodeBox.get_node("LineEdit").text = ""
 

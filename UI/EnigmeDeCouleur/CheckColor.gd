@@ -9,11 +9,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Button_pressed():
 	if $Container/ColorRect.color == color[0] and $Container2/ColorRect.color == color[1] and $Container3/ColorRect.color == color[2] and $Container4/ColorRect.color == color[3]:
 		get_node("/root/Main/Interactables/Cache").visible = false
@@ -25,3 +20,9 @@ func _on_Button_pressed():
 		$Container2/ColorRect.color = Color(1,0,0,1)
 		$Container3/ColorRect.color = Color(1,0,0,1)
 		$Container4/ColorRect.color = Color(1,0,0,1)
+
+
+func _on_ReturnButton_pressed():
+	visible = false
+	MainNode.get_node("Player").mouse_visible = false
+	MainNode.get_node("Player").can_move = true

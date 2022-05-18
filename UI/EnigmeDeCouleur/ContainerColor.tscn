@@ -19,6 +19,17 @@ margin_right = 50.0
 margin_bottom = 10.0
 text = "DEBLOQUE CACHE"
 
+[node name="ReturnButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -69.0
+margin_top = 89.0
+margin_right = 99.0
+margin_bottom = 109.0
+text = "FERMER"
+
 [node name="Container" type="Container" parent="."]
 anchor_left = 0.117
 anchor_top = 0.2
@@ -125,6 +136,7 @@ mouse_filter = 2
 input_pass_on_modal_close_click = false
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="Container/Button" to="Container" method="_on_Button_pressed"]
 [connection signal="pressed" from="Container2/Button" to="Container2" method="_on_Button_pressed"]
 [connection signal="pressed" from="Container3/Button" to="Container3" method="_on_Button_pressed"]
