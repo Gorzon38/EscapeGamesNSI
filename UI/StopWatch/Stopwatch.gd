@@ -1,17 +1,15 @@
 extends Label
 
 
+## GameState Node
+onready var gamestate : GameState = get_node("/root/Main/GameState")
+
 var time_elapsed := 0.0
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 func _process(delta):
-	time_elapsed += delta
-	text = _format_seconds(time_elapsed, true)
+	if !gamestate.game_is_paused:
+		time_elapsed += delta
+		text = _format_seconds(time_elapsed, true)
 
 func _format_seconds(time : float, use_milliseconds : bool) -> String:
 	var minutes := time / 60

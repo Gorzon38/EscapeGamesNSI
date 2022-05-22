@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Interactions_UI/OrdiDoc/OrdiDocUI.gd" type="Script" id=1]
+
+[node name="OrdiDocUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ButtonSend" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = 52.0
+margin_right = 102.0
+margin_bottom = 82.0
+text = "ENVOYER"
+
+[node name="ButtonClose" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.0
+margin_top = 57.0
+margin_right = -42.0
+margin_bottom = 77.0
+text = "FERMER"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -421.708
+margin_top = -12.0
+margin_right = 421.708
+margin_bottom = 12.0
+align = 1
+placeholder_text = "K - Sept"
+caret_blink = true
+
+[connection signal="pressed" from="ButtonSend" to="." method="_on_ButtonSend_pressed"]
+[connection signal="pressed" from="ButtonClose" to="." method="_on_ButtonClose_pressed"]

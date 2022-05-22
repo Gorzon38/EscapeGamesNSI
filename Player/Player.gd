@@ -71,3 +71,7 @@ func add_object_to_inventory(_pickup_type):
 	
 func has_object_in_inventory(_object: String) -> bool:
 	return inventory.count(_object) > 0
+	
+func set_move(value: bool)-> void:
+	can_move = value
+	mouse_visible = !value

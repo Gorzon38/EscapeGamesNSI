@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://PickupObjects/PickupObject.gd" type="Script" id=1]
+[ext_resource path="res://AssetsFini/img/cassette.png" type="Texture" id=2]
+[ext_resource path="res://ViewportScripts/ViewportProjecteur.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.2, 0.05, 0.35 )
@@ -16,20 +18,38 @@ emission_on_uv2 = false
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.2, 0.05, 0.35 )
 
-[node name="K7" type="Spatial"]
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Image/Viewport")
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="K7" type="StaticBody"]
 collision_layer = 3
 collision_mask = 2
 script = ExtResource( 1 )
 pickup_name_ui = "K7"
 pickup_name = "Cassette"
 
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+[node name="MeshInstance" type="MeshInstance" parent="."]
 layers = 2
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = SubResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 3 )
+
+[node name="Image" type="Sprite3D" parent="."]
+transform = Transform( -5.24537e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1.2, -4.37114e-08, 1.91069e-15, 0, 0.026021, 0 )
+pixel_size = 0.0007
+texture = SubResource( 4 )
+
+[node name="Viewport" type="Viewport" parent="Image"]
+size = Vector2( 512, 512 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 3 )
+
+[node name="Label" type="TextureRect" parent="Image/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+stretch_mode = 5

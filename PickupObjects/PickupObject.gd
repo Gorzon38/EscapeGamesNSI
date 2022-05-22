@@ -2,7 +2,6 @@ extends Interactable
 
 class_name PickupObject
 
-onready var Cassette: Sprite = get_node("/root/Main/UI/Cassette") # Recupère le noeud du niveau
 export var pickup_name_ui: String = "NONE" # Nom de l'objet à afficher
 export var pickup_name: String = "NONE" # Nom de l'objet pour le jeu
 
@@ -13,7 +12,7 @@ func get_interaction_text() -> String:
 func interact() -> void:
 	"""Intéraction avec l'objet"""
 	print("Player took %s" % pickup_name_ui)
-	player.add_object_to_inventory(pickup_name_ui)
-	Cassette.visible = true
+	gamestate.player.add_object_to_inventory(pickup_name_ui)
+	gamestate.get_menu("HUD").get_node("Cassette").visible = true
 	queue_free()
 	

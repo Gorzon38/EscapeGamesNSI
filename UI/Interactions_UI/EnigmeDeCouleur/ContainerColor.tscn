@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://UI/EnigmeDeCouleur/ContainerColor.gd" type="Script" id=1]
-[ext_resource path="res://UI/EnigmeDeCouleur/CheckColor.gd" type="Script" id=2]
+[ext_resource path="res://UI/Interactions_UI/EnigmeDeCouleur/ContainerColor.gd" type="Script" id=1]
+[ext_resource path="res://UI/Interactions_UI/EnigmeDeCouleur/CheckColor.gd" type="Script" id=2]
 
-[node name="Control" type="Control"]
+[node name="ContainerColor" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )

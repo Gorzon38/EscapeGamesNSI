@@ -2,7 +2,11 @@ extends Spatial
 
 class_name Interactable
 
-onready var player: KinematicBody = get_node("/root/Main/Player")
+## GameState Node
+onready var gamestate : GameState = get_node("/root/Main/GameState")
+
+func _ready():
+	pass
 
 func get_interaction_text() -> String:
 	return "Interactable"

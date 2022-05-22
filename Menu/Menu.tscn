@@ -31,19 +31,28 @@ rect_pivot_offset = Vector2( -270, -12 )
 focus_neighbour_top = NodePath("../Quit")
 text = "Commencer une nouvelle partie"
 
-[node name="Crédit" type="Button" parent="VBoxContainer"]
+[node name="PlayR" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
 margin_right = 521.0
 margin_bottom = 44.0
-text = "Crédit"
+rect_pivot_offset = Vector2( -270, -12 )
+focus_neighbour_top = NodePath("../Quit")
+text = "Commencer une nouvelle partie (Aléatoire)"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Crédit" type="Button" parent="VBoxContainer"]
 margin_top = 48.0
 margin_right = 521.0
 margin_bottom = 68.0
+text = "Crédit"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 521.0
+margin_bottom = 92.0
 focus_neighbour_bottom = NodePath("../Play")
 text = "Quitter le jeu"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayR" to="." method="_on_PlayR_pressed"]
 [connection signal="pressed" from="VBoxContainer/Crédit" to="." method="_on_Crdit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

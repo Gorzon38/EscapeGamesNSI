@@ -11,13 +11,13 @@ func _ready():
 
 ## Lance le 1er niveau
 func _on_Play_pressed():
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://Levels/Level1/Level1.tscn")
 
 ## Ouvre le menu option inexistant
 func _on_Option_pressed():
 	get_tree().change_scene("res://Menu/Option_menu.tscn")
 	
-## Ouvre le menu credit inexistant
+## Ouvre le menu credit
 func _on_Crdit_pressed():
 	get_tree().change_scene("res://Menu/Credit.tscn")
 
@@ -27,3 +27,7 @@ func _on_Quit_pressed():
 
 
 
+
+
+func _on_PlayR_pressed():
+	get_tree().change_scene("res://Levels/Level1/Level1R.tscn")

@@ -9,15 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "Control_EGN",
+"language": "GDScript",
+"path": "res://UI/Control_EGN.gd"
+}, {
+"base": "Node",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://GameState.gd"
+}, {
 "base": "Spatial",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://Interactables/Interactable.gd"
 }, {
-"base": "Spatial",
+"base": "Node",
+"class": "Level1EnigmeMaker",
+"language": "GDScript",
+"path": "res://Levels/Level1/Level1EnigmeMaker.gd"
+}, {
+"base": "Interactable",
 "class": "OrdiDoc",
 "language": "GDScript",
-"path": "res://Interactables/OrdiDoc.gd"
+"path": "res://Interactables/OrdiDoc/OrdiDoc.gd"
 }, {
 "base": "Interactable",
 "class": "PickupObject",
@@ -32,10 +47,13 @@ _global_script_classes=[ {
 "base": "Interactable",
 "class": "Projecteur",
 "language": "GDScript",
-"path": "res://Interactables/Projecteur.gd"
+"path": "res://Interactables/Projecteur/Projecteur.gd"
 } ]
 _global_script_class_icons={
+"Control_EGN": "",
+"GameState": "",
 "Interactable": "",
+"Level1EnigmeMaker": "",
 "OrdiDoc": "",
 "PickupObject": "",
 "Player": "",
